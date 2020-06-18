@@ -1,7 +1,6 @@
 # Container image that runs your code
 FROM alpine:3.10
 
-echo "installing Azure CLI"
 RUN apk add --no-cache curl tar openssl sudo bash jq
 
 RUN apk --update --no-cache add postgresql-client postgresql
