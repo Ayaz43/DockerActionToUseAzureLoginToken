@@ -4,7 +4,7 @@ FROM alpine:3.10
 ENV AZURE_CLI_VERSION 2.7.0
 
 RUN apk add --virtual=build gcc libffi-dev musl-dev openssl-dev make python3-dev linux-headers
-
+RUN apk add --no-cache curl tar openssl sudo bash jq
 RUN curl -L https://aka.ms/InstallAzureCli | bash
 
 
