@@ -13,4 +13,4 @@ az --version
 sleep 1
 
 echo "Azure version"
-/azure-cli/bin/python -m azure.cli
+/azure-cli/bin/python -m azure.cli --version
