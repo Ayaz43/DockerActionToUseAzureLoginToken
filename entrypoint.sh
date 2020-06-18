@@ -9,10 +9,5 @@ ls -a $GITHUB_WORKSPACE/.github/workflows/.azure
 
 sleep 1
 
-echo "list /home/runner/work/sampleWorkflow/"
-ls -a /home/runner/work/sampleWorkflow/
-
-sleep 1
-
-echo "list /home/runner/work/sampleWorkflow/.azure"
-ls -a /home/runner/work/sampleWorkflow/.azure
+echo "list $GITHUB_WORKSPACE/"
+ls -a $GITHUB_WORKSPACE/
