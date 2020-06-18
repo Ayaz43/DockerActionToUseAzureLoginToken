@@ -1,18 +1,15 @@
 # Container image that runs your code
-FROM alpine:3.10
-
-ENV AZURE_CLI_VERSION 2.7.0
-
-RUN apk --update --no-cache add postgresql-client postgresql
+FROM alpine:3.9
 
 RUN apk add --no-cache curl tar openssl sudo bash jq
 
-RUN apk add --virtual=build gcc libffi-dev musl-dev openssl-dev make python3-dev linux-headers
+RUN apk --update --no-cache add postgresql-client postgresql
 
-RUN ln -s /usr/bin/python3 /usr/bin/python
+ENV AZURE_CLI_VERSION 2.0.60
+RUN apk add py-pip && \
+    apk add --virtual=build gcc libffi-dev musl-dev openssl-dev python-dev make
 
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-
+RUN pip --no-cache-dir install azure-cli==${AZURE_CLI_VERSION}
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
