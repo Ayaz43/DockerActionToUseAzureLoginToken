@@ -12,4 +12,5 @@ sleep 1
 echo "list $GITHUB_WORKSPACE/"
 ls -a $GITHUB_WORKSPACE/
 
+az --version
 sleep 1
