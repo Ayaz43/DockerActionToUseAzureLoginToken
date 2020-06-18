@@ -4,4 +4,4 @@ echo "Hello $1"
 time=$(date)
 echo ::set-output name=time::$time
 ls /github/workspace/
-ls -a $GITHUB_WORKSPACE/.github/workflow/.azure
+ls -a $GITHUB_WORKSPACE/.github/workflows/.azure
