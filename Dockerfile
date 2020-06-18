@@ -6,7 +6,7 @@ RUN apk add --no-cache curl tar openssl sudo bash jq
 RUN apk --update --no-cache add postgresql-client postgresql
 
 
-RUN apk add py-pip && apk add --virtual=build gcc libffi-dev musl-dev openssl-dev python-dev make
+RUN apk -U upgrade add py-pip && apk -U upgrade add --virtual=build gcc libffi-dev musl-dev openssl-dev python-dev make
 
 ENV AZURE_CLI_VERSION 2.0.60
 
