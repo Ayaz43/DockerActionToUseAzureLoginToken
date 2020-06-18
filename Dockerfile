@@ -1,19 +1,14 @@
 # Container image that runs your code
+FROM alpine:3.10
 
-ENV AZURE_CLI_VERSION 2.0.72
+ENV AZURE_CLI_VERSION 2.7.0
 
-FROM python:3-alpine
 RUN apk add --no-cache curl tar openssl sudo bash jq
 
 RUN apk --update --no-cache add postgresql-client postgresql
 
-RUN python -m pip install --upgrade pip
-
-RUN pip3 install requests paho-mqtt
-
-COPY NumSide.py /home/mehdi/Download/NumSide.py
-
-CMD ["python","/home/mehdi/Download/NumSide.py"]
+RUN apk -U upgrade add py3-pip && apk -U upgrade add gcc libffi-dev musl-dev openssl-dev python-dev make
+RUN rm -f /usr/bin/python && ln -s /usr/bin/python /usr/bin/python3
 
 RUN curl -L https://aka.ms/InstallAzureCli | bash
 
