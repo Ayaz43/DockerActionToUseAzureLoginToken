@@ -11,7 +11,7 @@ RUN apk add --virtual=build gcc libffi-dev musl-dev openssl-dev make python3-dev
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-RUN curl -L https://aka.ms/InstallAzureCli | bash
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
