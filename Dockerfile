@@ -1,14 +1,24 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM alpine:3.12
 
 RUN apk add --no-cache curl tar openssl sudo bash jq
 
 RUN apk --update --no-cache add postgresql-client postgresql
 
 
-RUN apk -U upgrade add py-pip && apk -U upgrade add --virtual=build gcc libffi-dev musl-dev openssl-dev python-dev make
+ENV PYTHONUNBUFFERED=1
 
-ENV AZURE_CLI_VERSION 2.0.60
+RUN echo "**** install Python ****" && \
+    apk add --no-cache python3 && \
+    if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi && \
+    \
+    echo "**** install pip ****" && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --no-cache --upgrade pip setuptools wheel && \
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
+
+ENV AZURE_CLI_VERSION 2.0.72
 
 RUN pip --no-cache-dir install azure-cli==${AZURE_CLI_VERSION}
 
