@@ -9,6 +9,8 @@ RUN apk add --no-cache curl tar openssl sudo bash jq
 
 RUN apk add --virtual=build gcc libffi-dev musl-dev openssl-dev make python3-dev linux-headers
 
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 RUN curl -L https://aka.ms/InstallAzureCliBundled -o azure-cli_bundle.tar.gz
 RUN tar -xvzf azure-cli_bundle.tar.gz
 RUN azure-cli_bundle_*/installer
