@@ -15,4 +15,12 @@ ls -a $GITHUB_WORKSPACE/
 sleep 1
 
 echo "installing Azure CLI"
-curl -L https://aka.ms/InstallAzureCli | bash
+RUN apk add --no-cache curl tar openssl sudo bash jq
+
+RUN apk --update --no-cache add postgresql-client postgresql
+
+ENV AZURE_CLI_VERSION 2.0.72
+RUN apk add py-pip && \
+    apk add --virtual=build gcc libffi-dev musl-dev openssl-dev python-dev make
+
+RUN pip --no-cache-dir install azure-cli==${AZURE_CLI_VERSION}
