@@ -1,10 +1,9 @@
-# Container image that runs your code
-FROM alpine:3.9
+FROM marvinbuss/aml-docker:latest
 
+LABEL maintainer="azure/gh-aml"
 
-RUN pip install --upgrade pip
-
-RUN pip install azure-cli
+RUN python -m pip install --upgrade pip
+RUN python -m pip install azure-cli
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
