@@ -12,3 +12,6 @@ ls -a $GITHUB_WORKSPACE/
 
 echo "Azure version"
 az --version
+
+az account show
+
