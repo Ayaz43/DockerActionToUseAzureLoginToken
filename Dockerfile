@@ -7,9 +7,9 @@ RUN python -m pip install azure-cli
 
 RUN echo "#####################################################################"
 RUN echo "list github workspace .azure"
-RUN ls -a $GITHUB_WORKSPACE/.github/workflows/.azure
+RUN ls -a $GITHUB_WORKSPACE/
 
-RUN cp -R $GITHUB_WORKSPACE/.github/workflows/.azure /root/.azure
+# RUN cp -R $GITHUB_WORKSPACE/.github/workflows/.azure /root/.azure
 
 RUN echo "#####################################################################"
 RUN echo "list after copy"
