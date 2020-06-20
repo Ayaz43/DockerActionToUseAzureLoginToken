@@ -7,13 +7,13 @@ RUN python -m pip install azure-cli
 
 RUN echo "#####################################################################"
 RUN echo "list github workspace .azure"
-RUN ls -a $GITHUB_WORKSPACE/
+RUN ls -a $GITHUB_WORKSPACE/root
 
 # RUN cp -R $GITHUB_WORKSPACE/.github/workflows/.azure /root/.azure
 
 RUN echo "#####################################################################"
 RUN echo "list after copy"
-RUN ls -a /root/.azure
+RUN ls -a /root/
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
