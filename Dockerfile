@@ -9,6 +9,7 @@ RUN echo "#####################################################################"
 RUN echo "list github workspace .azure"
 RUN ls -a $GITHUB_WORKSPACE/.github/workflows/.azure
 
+FROM centos AS centos
 FROM alpine
 RUN --mount=type=bind,source=$GITHUB_WORKSPACE/.github/workflows/.azure,target=/root/.azure
 
