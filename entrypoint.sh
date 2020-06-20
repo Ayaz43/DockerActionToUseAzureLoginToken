@@ -10,3 +10,6 @@ ls -a $GITHUB_WORKSPACE/.github/workflows/.azure
 
 echo "Azure version"
 az --version
+
+echo "******************************************************"
+ls -a /home/runner/work/sampleWorkflow/
