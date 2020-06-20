@@ -12,4 +12,4 @@ echo "Azure version"
 az --version
 
 echo "******************************************************"
-ls -a /home/runner/work/sampleWorkflow/
+ls -a /root
