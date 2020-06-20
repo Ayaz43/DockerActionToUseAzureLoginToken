@@ -9,9 +9,7 @@ RUN echo "#####################################################################"
 RUN echo "list github workspace .azure"
 RUN ls -a $GITHUB_WORKSPACE/.github/workflows/.azure
 
-FROM centos AS centos
-FROM alpine
-RUN --mount type=volume,source=$GITHUB_WORKSPACE/.github/workflows/.azure,target=/root/.azure
+RUN cp -R $GITHUB_WORKSPACE/.github/workflows/.azure /root/.azure
 
 RUN echo "#####################################################################"
 RUN echo "list after copy"
