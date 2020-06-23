@@ -1,5 +1,5 @@
 #!/bin/sh -l
-ls -a ${process.env.HOME}
+ls -a /home
 
 cp -R $GITHUB_WORKSPACE/.azure /github/home/.azure
 
