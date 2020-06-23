@@ -1,7 +1,4 @@
 #!/bin/sh -l
-ls -a /home/
-
-ls -a /temp
 
 cat ${environmentVariables}
 
