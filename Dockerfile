@@ -5,7 +5,6 @@ LABEL maintainer="azure/gh-aml"
 RUN python -m pip install --upgrade pip
 RUN python -m pip install azure-cli
 
-RUN ls -a ${process.env.HOME}/.azure
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
